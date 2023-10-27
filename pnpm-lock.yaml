@@ -19,6 +19,9 @@ devDependencies:
   '@types/chess.js':
     specifier: ^0.13.6
     version: 0.13.6
+  '@types/node':
+    specifier: ^20.8.9
+    version: 20.8.9
   '@types/react':
     specifier: ^18.2.15
     version: 18.2.33

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Chess } from 'Chess.js'
 import { createBoard } from "../../functions";
-import Board from '../../components/board/index';
+import Board from '../../components/board';
 
 const FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
@@ -13,6 +13,8 @@ const Game = () => {
     useEffect(() => {
         setBoard(createBoard(fen));
     }, [fen]);
+
+    const fromPos = useRef();
 
     return (
         <div className="game">
