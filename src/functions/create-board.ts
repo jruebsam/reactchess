@@ -19,12 +19,11 @@ export const createBoard = (fenString: string) => {
     const fenPieces = fen.split('/').join('');
     let pieces = Array.from(fenPieces);
 
-
     Array.from(fenPieces).forEach((item, index) => {
         let xn = parseInt(item);
         if (!isNaN(xn) && isFinite(xn)) {
             let fill = range(xn).map(() => " ");
-            pieces.splice(index, 1, ...fill);
+            pieces.splice(index, 1, fill);
         }
     });
 
