@@ -4,13 +4,15 @@ import CellComp from '../../components/cell';
 
 interface BoardProps {
     cells: Cell[];
+    makeMove: (pos: string) => void;
+    setFromPos: (pos: string) => void;
 }
 
-const Board = ({ cells }: BoardProps) => {
+const Board = ({ cells, ...props }: BoardProps) => {
     return (
         <div className="board">
             {cells.map((cell, index) => (
-                <CellComp cell={cell} index={index} key={cell.pos}>{cell.pos}</CellComp>
+                <CellComp {...props} cell={cell} index={index} key={cell.pos} />
             ))}
         </div>
     )

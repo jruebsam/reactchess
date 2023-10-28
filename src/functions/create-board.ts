@@ -17,7 +17,7 @@ const range = (n: number): Array<number> => {
 export const createBoard = (fenString: string) => {
     const fen = fenString.split(' ')[0];
     const fenPieces = fen.split('/').join('');
-    let pieces = Array.from(fenPieces);
+    let pieces: (string | string[])[] = Array.from(fenPieces);
 
     Array.from(fenPieces).forEach((item, index) => {
         let xn = parseInt(item);

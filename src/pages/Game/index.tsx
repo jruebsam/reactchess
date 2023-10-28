@@ -14,11 +14,20 @@ const Game = () => {
         setBoard(createBoard(fen));
     }, [fen]);
 
-    const fromPos = useRef();
+    const fromPos = useRef<string>("");
+
+    const makeMove = (pos: string) => {
+        const from = fromPos.current;
+        const to = pos;
+        chess.move({ from, to });
+        setFen(chess.fen());
+    };
+
+    const setFromPos = (pos: string): void => { fromPos.current = pos; };
 
     return (
         <div className="game">
-            <Board cells={board} />
+            <Board cells={board} makeMove={makeMove} setFromPos={setFromPos} />
         </div>
     )
 
